@@ -1,0 +1,12 @@
+.myPagination {
+  span {
+    width: 20px;
+    height: 20px;
+    background: rgb(151, 144, 144);
+  }
+  .swiper-pagination-bullet-active {
+    background: rgb(136, 136, 136);
+    width: 20px;
+    height: 20px;
+  }
+}

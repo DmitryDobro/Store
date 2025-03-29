@@ -1,0 +1,16 @@
+.header {
+  @media (max-width: 1200px) {
+    display: grid;
+    // grid-template-columns: repeat(auto, max-content);
+    justify-content: normal;
+    grid-template-areas: 'logo menu' 'input input';
+  }
+}
+.input {
+  @media (max-width: 1200px) {
+    display: grid;
+    max-width: 100%;
+    grid-area: input;
+    grid-column: span 3;
+  }
+}
