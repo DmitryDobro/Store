@@ -5,14 +5,13 @@ import {useGetProductsByGenderQuery} from '@/api/productApi';
 function List() {
   const {param} = useParams();
   const {data} = useGetProductsByGenderQuery(param);
-
-  console.log(data);
   return (
     <section>
       <div className="flex gap-7 justify-between flex-wrap">
-        {data?.map((cardData, index) => (
+        {data?.map(cardData => (
           <CardProduct
-            key={index}
+            key={cardData.id}
+            id={cardData.id}
             name={cardData.name}
             prise={{
               mainPrise: cardData.prise.mainPrise,

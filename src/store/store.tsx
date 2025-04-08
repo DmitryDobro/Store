@@ -1,10 +1,12 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import productsSlicer from './productsSlicer';
+import cartSlicer from './cartSlicer';
 import { productApi } from '@/api/productApi';
 
 const rootreducer = combineReducers({
    [productApi.reducerPath]: productApi.reducer,
   productsSlicer,
+  cartSlicer
 });
 export const store = configureStore({
   reducer: rootreducer,
