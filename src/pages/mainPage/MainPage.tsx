@@ -1,14 +1,10 @@
-import Banner from "@/pages/mainPage/components/Banner/Banner";
-import CategoryList from "./components/CategoryList/CategoryList";
-import ProductList from "./components/ProductList/ProductList";
-import Brends from "./components/Brends/Brends";
-import Blogs from "./components/Blogs/Blogs";
-import { useGetProductsQuery } from "@/api/productApi";
+import Banner from "@/pages/mainPage/ui/Banner/Banner";
+import CategoryList from "./ui/CategoryList/CategoryList";
+import ProductList from "./ui/ProductList/ProductList";
+import Brends from "./ui/Brends/Brends";
+import Blogs from "./ui/Blogs/Blogs";
 
 function MainPage() {
-  const test = useGetProductsQuery()
-  console.log(test);
-  
   return (
   <>
   <Banner></Banner>

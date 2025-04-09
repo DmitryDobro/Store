@@ -9,8 +9,11 @@
     },
     "specifications": ["Running", "Engineered mesh"],
     "img": "https://i.ibb.co/Nd4Xqf86/pngegg-48.png",
-    "type": "Sport",
-    "gender":"women"
+    "type": "sport",
+    "gender":"women",  
+    "sale":true
+
+
   },
   {
     "name": "BROOKS GHOST 25",
@@ -20,8 +23,9 @@
     },
     "specifications": ["Running", "Engineered mesh"],
     "img": "https://i.ibb.co/cG0CR5N/pngegg-47.png",
-    "type": "Sport",
-    "gender":"women"
+    "type": "sport",
+    "gender":"women",
+    "sale":true
   },
   {
     "name": "PumaKids",
@@ -31,8 +35,9 @@
     },
     "specifications": ["Running", "Engineered mesh"],
     "img": "https://i.ibb.co/3yGxzYRL/pngegg-7.png",
-    "type": "Sport",
-    "gender":"kids"
+    "type": "sport",
+    "gender":"kids",  
+    "sale":true
   },
   {
     "name": "Norto flex",
@@ -41,8 +46,9 @@
     },
     "specifications": ["Running", "Engineered mesh"],
     "img": "https://i.ibb.co/Y4r9YH0t/pngegg-42.png",
-    "type": "Sport",
-    "gender":"kids"
+    "type": "sport",
+    "gender":"kids",
+    "sale":false
   },
   {
     "name": "Norto Black",
@@ -51,41 +57,167 @@
     },
     "specifications": ["Running", "Engineered mesh"],
     "img": "https://i.ibb.co/4RrKqqT4/pngegg-46.png",
-    "type": "Sport",
-    "gender":"men"
+    "type": "sport",
+    "gender":"men",
+    "sale":false
   },
   {
-    "name": "Vans Sport",
+    "name": "Vans sport",
     "prise": {
       "mainPrise": 200.00,
       "salePrise": 141.0
     },
     "specifications": ["Running", "Engineered mesh"],
     "img": "https://i.ibb.co/tpHj5wPw/pngegg-1.pngg",
-    "type": "Sport",
-    "gender":"men"
+    "type": "sport",
+    "gender":"men",
+    "sale":true
   },
   {
-    "name": "Vans Sport",
+    "name": "Spatx kids",
     "prise": {
-      "mainPrise": 200.00,
-      "salePrise": 141.0
+      "mainPrise": 20.00
     },
     "specifications": ["Running", "Engineered mesh"],
-    "img": "https://i.ibb.co/tpHj5wPw/pngegg-1.pngg",
-    "type": "Sport",
-    "gender":"men"
+    "img": "https://i.ibb.co/TMR6Y653/pngegg-34.png",
+    "type": "Sandals",
+    "gender":"kids",
+    "sale":false
   },
   {
-    "name": "Vans Sport",
+    "name": "Lofers",
     "prise": {
-      "mainPrise": 200.00,
-      "salePrise": 141.0
+      "mainPrise": 49.00,
+      "salePrise":39.00
     },
     "specifications": ["Running", "Engineered mesh"],
-    "img": "https://i.ibb.co/tpHj5wPw/pngegg-1.pngg",
-    "type": "Sport",
-    "gender":"men"
+    "img": "https://i.ibb.co/fYpx6bwm/pngegg.png",
+    "type": "casual",
+    "gender":"men",
+    "sale":true
+  },
+  {
+    "name": "UggiKids",
+    "prise": {
+      "mainPrise": 19.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/8LzfMxXz/pngegg-4.png",
+    "type": "casual",
+    "gender":"kids",
+    "sale":false
+  },
+  {
+    "name": "NB swagger",
+    "prise": {
+      "mainPrise": 25.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/V0cH5HY1/pngegg-5.png",
+    "type": "casual",
+    "gender":"men",
+    "sale":false
+  },
+  {
+    "name": "Puma NewGeneration",
+    "prise": {
+      "mainPrise": 75.00,
+      "salePrise":70.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/TBpQLqWF/pngegg-7.png",
+    "type": "casual",
+    "gender":"kids",
+    "sale":true
+  },  
+  {
+    "name": "No Convers",
+    "prise": {
+      "mainPrise": 75.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/ZzddQnf4/pngegg-8.png",
+    "type": "casual",
+    "gender":"men",
+    "sale":false
+  },
+  {
+    "name": "Disney shoes",
+    "prise": {
+      "mainPrise": 21.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/Z1WFyG3y/pngegg-10.png",
+    "type": "casual",
+    "gender":"kids",
+    "sale":false
+  },
+  {
+    "name": "Vans universal",
+    "prise": {
+      "mainPrise": 121.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/YFZh7rmK/pngegg-11.png",
+    "type": "casual",
+    "gender":["men", "women"],
+    "sale":false
+  },
+  {
+    "name": "Arnold",
+    "prise": {
+      "mainPrise": 101.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/m5KJxFps/pngegg-12.png",
+    "type": "casual",
+    "gender":"men",
+    "sale":false
+  },
+  {
+    "name": "Crocs",
+    "prise": {
+      "mainPrise": 71.00,
+      "salePrise":51.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/9HWKCnZP/pngegg-29.png",
+    "type": "sandals",
+    "gender":"men",
+    "sale":true
+  },
+  {
+    "name": "Sting",
+    "prise": {
+      "mainPrise": 41.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/ns0rXnSL/pngegg-30.png",
+    "type": "sandals",
+    "gender":"men",
+    "sale":false
+  },
+  {
+    "name": "Pride",
+    "prise": {
+      "mainPrise": 35.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/CpJ6R6d2/pngegg-31.png",
+    "type": "sandals",
+    "gender":"men",
+    "sale":false
+  },
+  {
+    "name": "Crocs",
+    "prise": {
+      "mainPrise": 35.00
+    },
+    "specifications": ["Running", "Engineered mesh"],
+    "img": "https://i.ibb.co/Kxry94Kd/pngegg-38.png",
+    "type": "Sandals",
+    "gender":"kids",
+    "sale":false
   }
   ]
 }

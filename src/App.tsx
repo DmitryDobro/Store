@@ -1,7 +1,7 @@
 import {Routes, Route} from 'react-router-dom';
-import Header from './components/header/Header';
+import Header from './widgets/header/Header';
 import MainPage from './pages/mainPage/MainPage';
-import List from './pages/productsPage/List';
+import List from './pages/productsPage/ProductsPage';
 
 function App() {
   return (
