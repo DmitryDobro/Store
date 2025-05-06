@@ -17,15 +17,12 @@ function Blogs() {
       </div>
       <Swiper
         modules={[Pagination, A11y]}
-        spaceBetween={50}
-        slidesPerView={1}
+        spaceBetween={10}
+        slidesPerView={2}
         pagination={{el: '.myPagination', clickable: true}}
         breakpoints={{
-          1000: {
+          834: {
             slidesPerView: 3,
-          },
-          640: {
-            slidesPerView: 2,
           },
         }}>
         {blogsData.map((blogData) => (

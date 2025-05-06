@@ -3,7 +3,7 @@ import {cardsData} from './mockData';
 import MyBtn from '@/shared/UI/Button/MyBtn';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Pagination, A11y} from 'swiper/modules';
-import './ProductList.scss';
+import './ProductList.css';
 import 'swiper/swiper-bundle.css';
 function ProductList() {
   const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
@@ -16,14 +16,11 @@ function ProductList() {
       <Swiper
         modules={[Pagination, A11y]}
         spaceBetween={50}
-        slidesPerView={1}
+        slidesPerView={2}
         pagination={{el: '.myPagination', clickable: true}}
         breakpoints={{
-          1000: {
+          834: {
             slidesPerView: 3,
-          },
-          640: {
-            slidesPerView: 2,
           },
         }}>
         {cardsData.map((cardData, index) => (

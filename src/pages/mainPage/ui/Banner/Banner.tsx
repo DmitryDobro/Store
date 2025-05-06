@@ -1,7 +1,7 @@
 import fon from '@/assets/img/products/shoose.png';
 function Banner() {
     return(
-        <section className={`test bg-mainTheme relative h-[700px] pt-[130px] flex justify-center mb-[65px]`}>
+        <section className={` bg-mainTheme relative h-[700px] pt-[130px] flex justify-center mb-[65px]`}>
         <h1 className="md:3xl:text-[350px] text-[20vw] title absolute top-0">Zapatos</h1>
         <div className="w-[100%] h-[100%] flex lg:justify-between justify-center  z-2 relative px-5 pb-5">
           <div className="text max-w-[500px] self-center z-1  basis-[50%] grow-1 shrink-1 lg:block hidden">
