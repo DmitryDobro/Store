@@ -61,7 +61,7 @@ function Header() {
           </div>
         ))}
       </div>
-      <CartModal setModalVisable={setCartVisable} isVisable={cartVisable}></CartModal>
+        <CartModal setModalVisable={setCartVisable} isVisable={cartVisable}></CartModal>
     </header>
   );
 }

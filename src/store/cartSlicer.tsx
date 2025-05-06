@@ -3,42 +3,47 @@ import {createSlice} from '@reduxjs/toolkit';
 
 interface CartProduct extends Product {
   quantity: number;
+  totalPrice: number;
 }
-const initialState: {selectProducts: CartProduct[]} = {
+const initialState: {selectProducts: CartProduct[]; price: number} = {
   selectProducts: [],
+  price: 0,
 };
-
+function getPrice(item: CartProduct) {
+     return item.prise.salePrise || item.prise.mainPrise;
+}
+function getTotalPrice(state) {
+ return state.price = state.selectProducts.reduce((acc: number, cur: { totalPrice: number; }) => acc + cur.totalPrice, 0) 
+}
 const cartSlicer = createSlice({
   name: 'cartSlicer',
   initialState,
   reducers: {
-    getSelectProducts(state, action) {
-      state.selectProducts = action.payload;
-    },
     addProduct(state, action) {
       const item = state.selectProducts.find(product => product.id === action.payload.id);
-      console.log(action.payload);
+      
       if (item) {
         item.quantity += 1;
+        item.prise.salePrise ? (item.totalPrice += item.prise.salePrise) : (item.totalPrice += item.prise.mainPrise);
+        getTotalPrice(state);
+        console.log(state.price);
       } else {
-        console.log({...action.payload, quantity: 1});
-
-        state.selectProducts.push({...action.payload, quantity: 1});
+        state.selectProducts.push({...action.payload, quantity: 1, totalPrice: getPrice(action.payload)});
+        getTotalPrice(state);
       }
     },
     removeProduct(state, action) {
-      state.selectProducts = state.selectProducts.filter(product => product.id !== action.payload.id);
-    },
-    changeQuantity(state, action) {
       const item = state.selectProducts.find(product => product.id === action.payload.id);
       if (item?.quantity == 1) {
         state.selectProducts = state.selectProducts.filter(product => product.id !== action.payload.id);
+        getTotalPrice(state);
       } else if (item) {
         item.quantity -= 1;
+        item.prise.salePrise ? (item.totalPrice -= item.prise.salePrise) : (item.totalPrice -= item.prise.mainPrise);
+        getTotalPrice(state);
       }
-      // state.selectProducts = state.selectProducts.filter(product => product.id !== action.payload.id);
     },
   },
 });
-export const {getSelectProducts, addProduct, removeProduct, changeQuantity} = cartSlicer.actions;
+export const {addProduct, removeProduct} = cartSlicer.actions;
 export default cartSlicer.reducer;

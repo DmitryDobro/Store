@@ -4,13 +4,16 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {Pagination, A11y} from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import CardBlogs from '@/shared/UI/Card/CardBlogs';
+import {Link} from 'react-router-dom';
 function Blogs() {
   const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   return (
     <section>
       <h3 className="TitleSection mb-6 text-center">BLOGS</h3>
       <div className="mb-18">
-        <MyBtn title={'See all'} {...propsBtn}></MyBtn>
+        <Link to={'/blogs'}>
+          <MyBtn title={'See all'} {...propsBtn}></MyBtn>
+        </Link>
       </div>
       <Swiper
         modules={[Pagination, A11y]}
@@ -25,9 +28,9 @@ function Blogs() {
             slidesPerView: 2,
           },
         }}>
-        {blogsData.map((blogData, index) => (
-          <SwiperSlide key={index}>
-            <CardBlogs name={blogData.name} text={blogData.text} img={blogData.img}></CardBlogs>
+        {blogsData.map((blogData) => (
+          <SwiperSlide key={blogData.id}>
+            <CardBlogs name={blogData.name} text={blogData.text} img={blogData.img} id={blogData.id}></CardBlogs>
           </SwiperSlide>
         ))}
         <div className="myPagination flex justify-center gap-2 mt-6"></div>

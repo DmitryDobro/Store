@@ -1,7 +1,13 @@
+import {Link} from 'react-router-dom';
 import MyBtn from '../Button/MyBtn';
-import type {ICard} from './ICard';
+interface CardBlogsProps {
+  name: string;
+  text: string;
+  img: string;
+  id: number;
+}
 
-function CardBlogs({name, text, img}: ICard) {
+function CardBlogs({name, text, img, id}: CardBlogsProps) {
   const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   return (
     <div className="grow-1 shrink-1 basis-[25%]">
@@ -15,7 +21,9 @@ function CardBlogs({name, text, img}: ICard) {
         <p className="Text_Regular">{text}</p>
       </div>
       <div>
-        <MyBtn title={'SEE MORE...'} {...propsBtn}></MyBtn>
+        <Link to={`/blogs/${id}`}>
+          <MyBtn title={'SEE MORE...'} {...propsBtn}></MyBtn>
+        </Link>
       </div>
     </div>
   );

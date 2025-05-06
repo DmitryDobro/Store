@@ -1,13 +1,14 @@
 import {useAppDispatch, useAppSelector} from '@/shared/hooks/redux';
 import MyBtn from '@/shared/UI/Button/MyBtn';
-import {addProduct, changeQuantity} from '@/store/cartSlicer';
+import {addProduct, removeProduct} from '@/store/cartSlicer';
 import Modal from '../modals/Modal';
+import {useMemo} from 'react';
 
 function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatch<React.SetStateAction<boolean>>; isVisable: boolean}) {
   const cartProducts = useAppSelector(state => state.cartSlicer.selectProducts);
+  const totalPrice = useAppSelector(state => state.cartSlicer.price);
   const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   const dispatch = useAppDispatch();
-
   return (
     <Modal setModalVisable={setModalVisable} isVisable={isVisable}>
       {cartProducts.length > 0 ? (
@@ -20,17 +21,18 @@ function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatc
                 </div>
                 <span className="self-center">{product.name}</span>
                 <div className="col-span-full">
-                  <span>Total prise: </span>
-                  <span>{product.prise.mainPrise}</span>
+                     <span>Prise: </span>
+                  <span>{product.totalPrice}</span>
                 </div>
               </div>
               <div className="flex flex-auto justify-between text-xl bg-mainTheme rounded-2xl px-2">
                 <button onClick={() => dispatch(addProduct(product))}>&#43;</button>
                 <span>{product.quantity}шт</span>
-                <button onClick={() => dispatch(changeQuantity(product))}>&#8722;</button>
+                <button onClick={() => dispatch(removeProduct(product))}>&#8722;</button>
               </div>
             </div>
-          ))}
+          ))}   
+               <p className='Text_Bold mb-2'> Total price: {totalPrice}</p>
           <MyBtn title={'Перейти к оформлению'} {...propsBtn}></MyBtn>
         </div>
       ) : (

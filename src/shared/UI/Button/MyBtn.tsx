@@ -6,6 +6,7 @@ interface BtnProps {
 
 function MyBtn({title, bgColor, propsFunc = () => {}, ...rest}: BtnProps) {
   const arr = Object.values(rest);
+
   function handleBtn() {
     propsFunc();
   }

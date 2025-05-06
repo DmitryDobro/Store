@@ -1,5 +1,6 @@
 import MyBtn from '@/shared/UI/Button/MyBtn';
 import {brendData} from './mockData';
+import {Link} from 'react-router-dom';
 
 function Brends() {
   const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
@@ -7,7 +8,9 @@ function Brends() {
     <section>
       <h3 className="TitleSection mb-6 text-center items-center">BRENDS</h3>
       <div className="mb-18">
-        <MyBtn title={'See all'} {...propsBtn}></MyBtn>
+        <Link to={'/brends'}>
+          <MyBtn title={'See all'} {...propsBtn}></MyBtn>
+        </Link>
       </div>
       <div className="flex flex-nowrap sm:flex-wrap gap-10  sm:gap-3 justify-between overflow-hidden">
         {brendData.map((brend, index) => (
