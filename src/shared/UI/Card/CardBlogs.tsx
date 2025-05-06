@@ -18,7 +18,7 @@ function CardBlogs({name, text, img, id}: CardBlogsProps) {
       </div>
       <div className="mb-[12px] bg-lightGrey pt-4">
         <h4 className="Text_Big mb-[12px] truncate">{name}</h4>
-        <p className="Text_Regular ">{text}</p>
+        <p className="Text_Regular truncate_col">{text}</p>
       </div>
       <div>
         <Link to={`/blogs/${id}`}>

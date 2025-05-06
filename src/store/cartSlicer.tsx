@@ -1,5 +1,6 @@
 import Product from '@/shared/models/IProduct';
 import {createSlice} from '@reduxjs/toolkit';
+import { WritableDraft } from 'immer';
 
 interface CartProduct extends Product {
   quantity: number;
@@ -9,11 +10,11 @@ const initialState: {selectProducts: CartProduct[]; price: number} = {
   selectProducts: [],
   price: 0,
 };
-function getPrice(item: CartProduct) {
-     return item.prise.salePrise || item.prise.mainPrise;
+function getOnePrice(item: CartProduct) {
+  return item.prise.salePrise || item.prise.mainPrise;
 }
-function getTotalPrice(state) {
- return state.price = state.selectProducts.reduce((acc: number, cur: { totalPrice: number; }) => acc + cur.totalPrice, 0) 
+function getTotalPrice(state: WritableDraft<{ selectProducts: CartProduct[]; price: number; }>) {
+  return (state.price = state.selectProducts.reduce((acc: number, cur: {totalPrice: number}) => acc + cur.totalPrice, 0));
 }
 const cartSlicer = createSlice({
   name: 'cartSlicer',
@@ -21,14 +22,12 @@ const cartSlicer = createSlice({
   reducers: {
     addProduct(state, action) {
       const item = state.selectProducts.find(product => product.id === action.payload.id);
-      
       if (item) {
         item.quantity += 1;
         item.prise.salePrise ? (item.totalPrice += item.prise.salePrise) : (item.totalPrice += item.prise.mainPrise);
         getTotalPrice(state);
-        console.log(state.price);
       } else {
-        state.selectProducts.push({...action.payload, quantity: 1, totalPrice: getPrice(action.payload)});
+        state.selectProducts.push({...action.payload, quantity: 1, totalPrice: getOnePrice(action.payload)});
         getTotalPrice(state);
       }
     },

@@ -3,6 +3,7 @@ import Header from './widgets/header/Header';
 import MainPage from './pages/mainPage/MainPage';
 import List from './pages/productsPage/ProductsPage';
 import NoFoundPage from './pages/noFoundPage/NoFoundPage';
+import OrderPage from './pages/orderPage/OrderPage';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
+        <Route path="/order" element={<OrderPage />}></Route>
         <Route path="/products/:param" element={<List />}></Route>
         <Route path="/*" element={<NoFoundPage/>}></Route>
       </Routes>

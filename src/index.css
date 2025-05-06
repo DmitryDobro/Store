@@ -45,13 +45,19 @@
   font-weight: 700;
   line-height: 24px;
 }
+.Text_Bold_Small {
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+}
 .Text_Regular {
   font-family: Open Sans;
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
-  
-
+}
+.truncate_col {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

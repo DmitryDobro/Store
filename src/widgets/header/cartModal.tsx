@@ -1,14 +1,18 @@
 import {useAppDispatch, useAppSelector} from '@/shared/hooks/redux';
 import MyBtn from '@/shared/UI/Button/MyBtn';
 import {addProduct, removeProduct} from '@/store/cartSlicer';
-import Modal from '../modals/Modal';
+import Modal from '../../shared/UI/Modals/Modal';
 import {useMemo} from 'react';
+import { Link } from 'react-router-dom';
 
 function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatch<React.SetStateAction<boolean>>; isVisable: boolean}) {
   const cartProducts = useAppSelector(state => state.cartSlicer.selectProducts);
   const totalPrice = useAppSelector(state => state.cartSlicer.price);
   const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   const dispatch = useAppDispatch();
+  function closeModal(){
+    setModalVisable(false)
+  }
   return (
     <Modal setModalVisable={setModalVisable} isVisable={isVisable}>
       {cartProducts.length > 0 ? (
@@ -21,7 +25,7 @@ function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatc
                 </div>
                 <span className="self-center">{product.name}</span>
                 <div className="col-span-full">
-                     <span>Prise: </span>
+                  <span>Prise: </span>
                   <span>{product.totalPrice}</span>
                 </div>
               </div>
@@ -31,9 +35,11 @@ function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatc
                 <button onClick={() => dispatch(removeProduct(product))}>&#8722;</button>
               </div>
             </div>
-          ))}   
-               <p className='Text_Bold mb-2'> Total price: {totalPrice}</p>
-          <MyBtn title={'Перейти к оформлению'} {...propsBtn}></MyBtn>
+          ))}
+          <p className="Text_Bold mb-2"> Total price: {totalPrice}</p>
+          <Link to={'/order'}>
+            <MyBtn propsFunc={closeModal} title={'Перейти к оформлению'} {...propsBtn}></MyBtn>
+          </Link>
         </div>
       ) : (
         <span className="self-center text-center Text_Bold">Корзина пуста</span>
