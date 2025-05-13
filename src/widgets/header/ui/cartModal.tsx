@@ -16,7 +16,7 @@ function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatc
     <Modal setModalVisable={setModalVisable} isVisable={isVisable}>
       {cartProducts.length > 0 ? (
         <div>
-          {cartProducts.map(product => (
+          {cartProducts.map((product) => (
             <div key={product.id} className="flex items-center justify-between gap-4 mb-4">
               <div className="grid grid-cols-2 gap-x-2">
                 <div className="w-[80px] ">

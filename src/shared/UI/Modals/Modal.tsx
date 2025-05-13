@@ -1,11 +1,11 @@
 import {useClickOutside} from '@/shared/hooks/useClickOutside';
-import { useRef} from 'react';
+import {useRef} from 'react';
 interface cartProps {
   isVisable: boolean;
-  setModalVisable: (arg: boolean) => void;
+  setModalVisable?: (arg: boolean) => void;
   children: React.ReactNode;
 }
-function Modal({isVisable, setModalVisable, children}: cartProps) {
+function Modal({isVisable, setModalVisable = () => {}, children}: cartProps) {
   const cartRef = useRef(null);
   useClickOutside(cartRef, () => {
     setModalVisable(false);
