@@ -1,13 +1,9 @@
 import {Link} from 'react-router-dom';
 import MyBtn from '../Button/MyBtn';
-interface CardBlogsProps {
-  name: string;
-  text: string;
-  img: string;
-  id: number;
-}
+import Product from '@/shared/models/IProduct';
 
-function CardBlogs({name, text, img, id}: CardBlogsProps) {
+
+function CardBlogs({name, text, img, id}: Product) {
   const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   return (
     <div className="grow-1 shrink-1 basis-[25%]">

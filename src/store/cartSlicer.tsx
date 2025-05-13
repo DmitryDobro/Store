@@ -1,11 +1,11 @@
 import Product from '@/shared/models/IProduct';
 import {createSlice} from '@reduxjs/toolkit';
-import { WritableDraft } from 'immer';
 
 interface CartProduct extends Product {
   quantity: number;
   totalPrice: number;
 }
+
 const initialState: {selectProducts: CartProduct[]; price: number} = {
   selectProducts: [],
   price: 0,
@@ -13,7 +13,7 @@ const initialState: {selectProducts: CartProduct[]; price: number} = {
 function getOnePrice(item: CartProduct) {
   return item.prise.salePrise || item.prise.mainPrise;
 }
-function getTotalPrice(state: WritableDraft<{ selectProducts: CartProduct[]; price: number; }>) {
+function getTotalPrice(state:{selectProducts: CartProduct[]; price: number}) {
   return (state.price = state.selectProducts.reduce((acc: number, cur: {totalPrice: number}) => acc + cur.totalPrice, 0));
 }
 const cartSlicer = createSlice({
@@ -42,7 +42,10 @@ const cartSlicer = createSlice({
         getTotalPrice(state);
       }
     },
+    removeAll(state, action){
+      state.selectProducts = state.selectProducts.filter(product => product.id !== action.payload.id);
+    }
   },
 });
-export const {addProduct, removeProduct} = cartSlicer.actions;
+export const {addProduct, removeProduct,removeAll} = cartSlicer.actions;
 export default cartSlicer.reducer;

@@ -1,8 +1,7 @@
 import {useAppDispatch, useAppSelector} from '@/shared/hooks/redux';
 import MyBtn from '@/shared/UI/Button/MyBtn';
 import {addProduct, removeProduct} from '@/store/cartSlicer';
-import Modal from '../../shared/UI/Modals/Modal';
-import {useMemo} from 'react';
+import Modal from '@/shared/UI/Modals/Modal';
 import { Link } from 'react-router-dom';
 
 function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatch<React.SetStateAction<boolean>>; isVisable: boolean}) {

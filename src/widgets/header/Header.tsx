@@ -9,7 +9,7 @@ import phone from '@/assets/img/icons/phone.svg';
 import Input from '@/shared/UI/Input/Input';
 import {Link} from 'react-router-dom';
 import {useAppSelector} from '@/shared/hooks/redux';
-import CartModal from './cartModal';
+import CartModal from './ui/cartModal';
 const data = [
   {
     icon: phone,
@@ -36,7 +36,6 @@ const data = [
 ];
 
 function Header() {
-  const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   const cartProducts = useAppSelector(state => state.cartSlicer.selectProducts);
   const [cartVisable, setCartVisable] = useState(false);
   return (

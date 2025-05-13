@@ -5,6 +5,10 @@ import List from './pages/productsPage/ProductsPage';
 import NoFoundPage from './pages/noFoundPage/NoFoundPage';
 import OrderPage from './pages/orderPage/OrderPage';
 
+
+
+
+
 function App() {
   return (
     <div className="max-w-[1750px] m-auto p-3">

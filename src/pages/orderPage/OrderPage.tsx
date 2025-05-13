@@ -2,8 +2,9 @@ import deleteIcon from '@/assets/img/icons/deleteIcon.svg';
 import animationCount from '@/shared/features/animationCount';
 import {useAppDispatch, useAppSelector} from '@/shared/hooks/redux';
 import MyBtn from '@/shared/UI/Button/MyBtn';
-import {addProduct, removeProduct} from '@/store/cartSlicer';
+import {addProduct, removeProduct, removeAll} from '@/store/cartSlicer';
 import {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 function OrderPage() {
   const dispatch = useAppDispatch();
   const cartProducts = useAppSelector(state => state.cartSlicer.selectProducts);
@@ -16,27 +17,37 @@ function OrderPage() {
   const propsBtn = ['px-[13px] py-[13px] border-1 rounded-2xl'];
   return (
     <section className="flex gap-10 justify-between">
-      <div className="flex-auto bg-lightGrey rounded-2xl">
-        {cartProducts.map(product => (
-          <div key={product.id} className="flex justify-around items-center mb-10 gap-8">
-            <div className="w-[100px] bg-mainTheme rounded-2xl ">
-              <img src={product.img} alt="" className="aspect-square" />
+      {cartProducts.length > 0 ? (
+        <div className="flex-auto bg-lightGrey rounded-2xl h-max">
+          {cartProducts.map(product => (
+            <div key={product.id} className="flex justify-around items-center mb-8 p-2 gap-8 last:mb-0">
+              <div className="w-[100px] bg-mainTheme rounded-2xl ">
+                <img src={product.img} alt="" className="aspect-square" />
+              </div>
+              <div className="flex basis-[50%] gap-8 flex-col justify-between items-start">
+                <span>{product.name}</span>
+                <button onClick={() => dispatch(removeAll(product))}>
+                  <img className="max-h-[20px]" src={deleteIcon} alt="" />
+                </button>
+              </div>
+              <div className="flex flex-auto justify-between text-xl bg-mainTheme rounded-2xl px-2 max-w-[170px] Text_Bold">
+                <button onClick={() => dispatch(addProduct(product))}>&#43;</button>
+                <span>{product.quantity}шт</span>
+                <button onClick={() => dispatch(removeProduct(product))}>&#8722;</button>
+              </div>
+              <div className="flex-auto Text_Bold text-center">
+                <span className="">{product.totalPrice}р.</span>
+              </div>
             </div>
-            <div className="flex basis-[50%] gap-8 flex-col justify-between items-start">
-              <span>{product.name}</span>
-              <img className="max-h-[20px]" src={deleteIcon} alt="" />
-            </div>
-            <div className="flex flex-auto justify-between text-xl bg-mainTheme rounded-2xl px-2 max-w-[170px] Text_Bold">
-              <button onClick={() => dispatch(addProduct(product))}>&#43;</button>
-              <span>{product.quantity}шт</span>
-              <button onClick={() => dispatch(removeProduct(product))}>&#8722;</button>
-            </div>
-            <div className="flex-auto Text_Bold text-center">
-              <span className="">{product.totalPrice}р.</span>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className='text-center m-auto'>
+          <p className='Text_Bold'>Корзина пуста</p>
+          <Link className='cursor-pointer text-green-500' to={'/'}>Вернуться к покупкам</Link>
+        </div>
+      )}
+
       <div className="bg-lightGrey Text_Regular rounded-2xl p-4 w-[360px] sticky max-h-[300px]">
         <div className="flex flex-col gap-1 mb-3">
           <span className="Text_Bold_Small">Доставка в пункт выдачи</span>
