@@ -4,7 +4,6 @@ import Product from '@/shared/models/IProduct';
 
 
 function CardBlogs({name, text, img, id}: Product) {
-  const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   return (
     <div className="grow-1 shrink-1 basis-[25%]">
       <div className="relative bg-[rgb(236,236,236)]">
@@ -18,7 +17,7 @@ function CardBlogs({name, text, img, id}: Product) {
       </div>
       <div>
         <Link to={`/blogs/${id}`}>
-          <MyBtn title={'SEE MORE...'} {...propsBtn}></MyBtn>
+          <MyBtn title={'SEE MORE...'}></MyBtn>
         </Link>
       </div>
     </div>

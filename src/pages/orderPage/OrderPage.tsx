@@ -1,10 +1,11 @@
 import deleteIcon from '@/assets/img/icons/deleteIcon.svg';
 import animationCount from '@/shared/features/animationCount';
 import {useAppDispatch, useAppSelector} from '@/shared/hooks/redux';
+import ButtonCounter from '@/shared/UI/Button/ButtonCounter';
 import MyBtn from '@/shared/UI/Button/MyBtn';
 import {addProduct, removeProduct, removeAll} from '@/store/cartSlicer';
 import {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 function OrderPage() {
   const dispatch = useAppDispatch();
   const cartProducts = useAppSelector(state => state.cartSlicer.selectProducts);
@@ -13,8 +14,12 @@ function OrderPage() {
   useEffect(() => {
     animationCount(priceFromState, totalPriceForRender, setTotalPrice);
   }, [priceFromState]);
-
-  const propsBtn = ['px-[13px] py-[13px] border-1 rounded-2xl'];
+  function handleIncrement(product) {
+    dispatch(addProduct(product));
+  }
+  function handleDecrement(product) {
+    dispatch(removeProduct(product));
+  }
   return (
     <section className="flex gap-10 justify-between">
       {cartProducts.length > 0 ? (
@@ -30,11 +35,11 @@ function OrderPage() {
                   <img className="max-h-[20px]" src={deleteIcon} alt="" />
                 </button>
               </div>
-              <div className="flex flex-auto justify-between text-xl bg-mainTheme rounded-2xl px-2 max-w-[170px] Text_Bold">
-                <button onClick={() => dispatch(addProduct(product))}>&#43;</button>
-                <span>{product.quantity}шт</span>
-                <button onClick={() => dispatch(removeProduct(product))}>&#8722;</button>
-              </div>
+              <ButtonCounter
+                className="Text_Bold max-w-[130px] gap-2"
+                count={product.quantity}
+                handleIncrement={() => handleIncrement(product)}
+                handleDecrement={() => handleDecrement(product)}></ButtonCounter>
               <div className="flex-auto Text_Bold text-center">
                 <span className="">{product.totalPrice}р.</span>
               </div>
@@ -42,9 +47,11 @@ function OrderPage() {
           ))}
         </div>
       ) : (
-        <div className='text-center m-auto'>
-          <p className='Text_Bold'>Корзина пуста</p>
-          <Link className='cursor-pointer text-green-500' to={'/'}>Вернуться к покупкам</Link>
+        <div className="text-center m-auto">
+          <p className="Text_Bold">Корзина пуста</p>
+          <Link className="cursor-pointer text-green-500" to={'/'}>
+            Вернуться к покупкам
+          </Link>
         </div>
       )}
 
@@ -64,7 +71,7 @@ function OrderPage() {
             <span>Итого</span>
             <span>{totalPriceForRender}</span>
           </div>
-          <MyBtn title={'Оформить заказ'} {...propsBtn}></MyBtn>
+          <MyBtn title={'Оформить заказ'}></MyBtn>
         </div>
       </div>
     </section>

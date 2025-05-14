@@ -3,13 +3,12 @@ import {brendData} from './mockData';
 import {Link} from 'react-router-dom';
 
 function Brends() {
-  const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   return (
     <section>
       <h3 className="TitleSection mb-6 text-center items-center">BRENDS</h3>
       <div className="mb-18">
         <Link to={'/brends'}>
-          <MyBtn title={'See all'} {...propsBtn}></MyBtn>
+          <MyBtn title={'See all'}></MyBtn>
         </Link>
       </div>
       <div className="flex flex-nowrap sm:flex-wrap gap-10  sm:gap-3 justify-between overflow-hidden">

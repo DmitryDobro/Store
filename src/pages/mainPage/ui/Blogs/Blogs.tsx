@@ -6,13 +6,12 @@ import 'swiper/swiper-bundle.css';
 import CardBlogs from '@/shared/UI/Card/CardBlogs';
 import {Link} from 'react-router-dom';
 function Blogs() {
-  const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   return (
     <section>
       <h3 className="TitleSection mb-6 text-center">BLOGS</h3>
       <div className="mb-18">
         <Link to={'/blogs'}>
-          <MyBtn title={'See all'} {...propsBtn}></MyBtn>
+          <MyBtn title={'See all'} ></MyBtn>
         </Link>
       </div>
       <Swiper

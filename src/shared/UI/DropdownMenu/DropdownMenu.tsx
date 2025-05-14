@@ -19,8 +19,8 @@ function DropdownMenu({title, subMenu}: DropdownMenuProps) {
       <ul className="flex gap-3 mainMenu" onMouseEnter={handleMouseOn} onMouseLeave={handleMouseOff}>
         <li className="relative" >
           {title}
-          <Modal isVisable={subMenuVisable}>
-            <ul className="subMenu absolute top-9">
+          <Modal isVisable={subMenuVisable} className='px-5'>
+            <ul className="subMenu">
               {subMenu.map(item => (
                 <li className="list-disc">
                   <Link to={`/${item}`}>{item}</Link>

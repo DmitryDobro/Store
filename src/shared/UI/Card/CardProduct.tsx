@@ -4,9 +4,9 @@ import {useAppDispatch, useAppSelector} from '@/shared/hooks/redux';
 import {addProduct, removeProduct} from '@/store/cartSlicer';
 import Product from '@/shared/models/IProduct';
 import {useMemo} from 'react';
+import ButtonCounter from '../Button/ButtonCounter';
 
 function CardProduct({name, prise, specifications, img, id, sale}: Product) {
-  const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   const cartProducts = useAppSelector(state => state.cartSlicer.selectProducts);
   function getCartProduct(id: number) {
     const item = cartProducts.find(product => product.id === id);
@@ -19,6 +19,12 @@ function CardProduct({name, prise, specifications, img, id, sale}: Product) {
   const dispatch = useAppDispatch();
   function handleAddProduct() {
     dispatch(addProduct({name, prise, img, id}));
+  }
+  function handleIncrement() {
+    dispatch(addProduct(cartProduct));
+  }
+  function handleDecrement() {
+    dispatch(removeProduct(cartProduct));
   }
   return (
     <div className="">
@@ -49,13 +55,9 @@ function CardProduct({name, prise, specifications, img, id, sale}: Product) {
       </div>
 
       {cartProduct ? (
-        <div className="flex justify-around py-[16px] border-1 bg-mainTheme rounded-2xl px-2">
-          <button onClick={() => dispatch(addProduct(cartProduct))}>&#43;</button>
-          <span>{cartProduct.quantity}шт</span>
-          <button onClick={() => dispatch(removeProduct(cartProduct))}>&#8722;</button>
-        </div>
+        <ButtonCounter className='border-1 py-[16px]' count={cartProduct.quantity} handleIncrement={handleIncrement} handleDecrement={handleDecrement}></ButtonCounter>
       ) : (
-        <MyBtn propsFunc={handleAddProduct} title={'ADD TO CART'} {...propsBtn}></MyBtn>
+        <MyBtn propsFunc={handleAddProduct} title={'ADD TO CART'}></MyBtn>
       )}
     </div>
   );

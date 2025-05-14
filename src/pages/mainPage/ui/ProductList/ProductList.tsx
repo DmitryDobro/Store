@@ -6,12 +6,11 @@ import {Pagination, A11y} from 'swiper/modules';
 import './ProductList.css';
 import 'swiper/swiper-bundle.css';
 function ProductList() {
-  const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   return (
     <section className="mb-15">
       <h3 className="TitleSection mb-6 text-center">FIND YOUR PERFECT PAIR</h3>
       <div className="mb-18">
-        <MyBtn title={'See all'} {...propsBtn}></MyBtn>
+        <MyBtn title={'See all'}  className={'w-[100%]'}></MyBtn>
       </div>
       <Swiper
         modules={[Pagination, A11y]}

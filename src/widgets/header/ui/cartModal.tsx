@@ -2,21 +2,21 @@ import {useAppDispatch, useAppSelector} from '@/shared/hooks/redux';
 import MyBtn from '@/shared/UI/Button/MyBtn';
 import {addProduct, removeProduct} from '@/store/cartSlicer';
 import Modal from '@/shared/UI/Modals/Modal';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatch<React.SetStateAction<boolean>>; isVisable: boolean}) {
   const cartProducts = useAppSelector(state => state.cartSlicer.selectProducts);
   const totalPrice = useAppSelector(state => state.cartSlicer.price);
   const propsBtn = ['px-[16px] py-[16px] border-1 w-[100%]'];
   const dispatch = useAppDispatch();
-  function closeModal(){
-    setModalVisable(false)
+  function closeModal() {
+    setModalVisable(false);
   }
   return (
-    <Modal setModalVisable={setModalVisable} isVisable={isVisable}>
+    <Modal setModalVisable={setModalVisable} isVisable={isVisable} className="right-10 top-[55px] overflow-y-scroll">
       {cartProducts.length > 0 ? (
         <div>
-          {cartProducts.map((product) => (
+          {cartProducts.map(product => (
             <div key={product.id} className="flex items-center justify-between gap-4 mb-4">
               <div className="grid grid-cols-2 gap-x-2">
                 <div className="w-[80px] ">
