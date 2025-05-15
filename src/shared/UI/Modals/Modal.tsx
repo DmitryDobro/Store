@@ -16,7 +16,7 @@ function Modal({isVisable, size = 'sm', className, setModalVisable = () => {}, c
   const sizeClasses = {
     sm: 'max-w-[300px]',
   };
-  const baseClass = 'min-h-[200px] max-h-[400px] bg-white absolute z-3 rounded-2xl shadow-2xl p-3 flex flex-col justify-between ';
+  const baseClass = 'min-h-[100px] max-h-[400px] bg-white absolute z-3 rounded-2xl shadow-2xl p-3 flex flex-col justify-between ';
   return (
     <div
       ref={cartRef}

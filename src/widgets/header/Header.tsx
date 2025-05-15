@@ -54,7 +54,7 @@ function Header() {
   const cartProducts = useAppSelector(state => state.cartSlicer.selectProducts);
   const [cartVisable, setCartVisable] = useState(false);
   return (
-    <header className=" relative mb-6">
+    <header className=" relative mb-11">
       <div className="header  flex gap-3 justify-around items-center relative">
         <div className=" lg:hidden w-5 h-5 bg-amber-400 basis-[30px]"></div>
         <Link to="/">
@@ -72,7 +72,7 @@ function Header() {
               key={index}>
               <img className="w-6 h-6 " src={item.icon} alt="" />
               {item.icon === cart && cartProducts.length ? <span className=" cartIcon">{cartProducts.length}</span> : ''}
-              <p className="md:ld:hidden textMenu truncate">{item.info}</p>
+              <p className="md:ld:hidden Text_Small truncate">{item.info}</p>
             </div>
           ))}
         </div>

@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 function Blogs() {
   return (
     <section>
-      <h3 className="TitleSection mb-6 text-center">BLOGS</h3>
+      <h3 className="Title_Large mb-6 text-center">BLOGS</h3>
       <div className="mb-18">
         <Link to={'/blogs'}>
           <MyBtn title={'See all'} ></MyBtn>

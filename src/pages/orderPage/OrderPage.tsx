@@ -21,7 +21,7 @@ function OrderPage() {
     dispatch(removeProduct(product));
   }
   return (
-    <section className="flex gap-10 justify-between">
+    <section className="flex-col lg:flex-row flex gap-10 justify-between">
       {cartProducts.length > 0 ? (
         <div className="flex-auto bg-lightGrey rounded-2xl h-max">
           {cartProducts.map(product => (
@@ -55,7 +55,7 @@ function OrderPage() {
         </div>
       )}
 
-      <div className="bg-lightGrey Text_Regular rounded-2xl p-4 w-[360px] sticky max-h-[300px]">
+      <div className="w-auto max-h-fit lg:w-[360px] lg:max-h-[300px] lg:sticky bg-lightGrey Text_Regular rounded-2xl p-4">
         <div className="flex flex-col gap-1 mb-3">
           <span className="Text_Bold_Small">Доставка в пункт выдачи</span>
           <span>г. Красноярск пр-кт Красноярский рабочий 25</span>
@@ -63,7 +63,7 @@ function OrderPage() {
         </div>
         <div className="flex flex-col gap-1">
           <span> Оплата по карте</span>
-          <div className="flex flex-auto justify-between text-xl bg-mainTheme rounded-2xl p-1 Text_Regular gap-3 mb-4">
+          <div className="flex flex-auto justify-between text-xl bg-mainTheme rounded-2xl p-1 ButtonText gap-3 mb-4">
             <button className="bg-white basis-[50%] rounded-2xl p-4">При получении</button>
             <button className="bg-white basis-[50%] rounded-2xl">Сразу</button>
           </div>

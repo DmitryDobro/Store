@@ -8,9 +8,9 @@ import 'swiper/swiper-bundle.css';
 function ProductList() {
   return (
     <section className="mb-15">
-      <h3 className="TitleSection mb-6 text-center">FIND YOUR PERFECT PAIR</h3>
+      <h3 className="Title_Large mb-6 text-center">FIND YOUR PERFECT PAIR</h3>
       <div className="mb-18">
-        <MyBtn title={'See all'}  className={'w-[100%]'}></MyBtn>
+        <MyBtn title={'See all'}></MyBtn>
       </div>
       <Swiper
         modules={[Pagination, A11y]}
@@ -33,7 +33,9 @@ function ProductList() {
               }}
               specifications={cardData.specifications}
               img={cardData.img}
-              type={cardData.type} id={index} sale={cardData.sale}></CardProduct>
+              type={cardData.type}
+              id={index}
+              sale={cardData.sale}></CardProduct>
           </SwiperSlide>
         ))}
         <div className="myPagination flex justify-center gap-2 mt-6"></div>

@@ -8,7 +8,7 @@ function CategoryList() {
   const classBtn = 'absolute bottom-0 left-0 m-[4%] px-[10px] py-[10px] bg-[rgb(255,255,255)]';
   return (
     <section>
-      <h3 className="TitleSection text-center">FIND YOUR PERFECT PAIR</h3>
+      <h3 className="Title_Large text-center">FIND YOUR PERFECT PAIR</h3>
       <div className="flex justify-between flex-wrap gap-[15px] mb-[100px] ">
         <div className="relative flex-auto max-h-[380px]">
           <Link to="/products/men">

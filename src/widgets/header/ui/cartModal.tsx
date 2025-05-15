@@ -3,6 +3,7 @@ import MyBtn from '@/shared/UI/Button/MyBtn';
 import {addProduct, removeProduct} from '@/store/cartSlicer';
 import Modal from '@/shared/UI/Modals/Modal';
 import {Link} from 'react-router-dom';
+import emptyCart from '@/assets/img/icons/emptyCart.png';
 
 function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatch<React.SetStateAction<boolean>>; isVisable: boolean}) {
   const cartProducts = useAppSelector(state => state.cartSlicer.selectProducts);
@@ -12,10 +13,11 @@ function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatc
   function closeModal() {
     setModalVisable(false);
   }
+  const className = 'right-0 top-[55px]';
   return (
-    <Modal setModalVisable={setModalVisable} isVisable={isVisable} className="right-10 top-[55px] overflow-y-scroll">
+    <Modal setModalVisable={setModalVisable} isVisable={isVisable} className={className}>
       {cartProducts.length > 0 ? (
-        <div>
+        <div className="overflow-y-scroll">
           {cartProducts.map(product => (
             <div key={product.id} className="flex items-center justify-between gap-4 mb-4">
               <div className="grid grid-cols-2 gap-x-2">
@@ -38,10 +40,16 @@ function CartModal({setModalVisable, isVisable}: {setModalVisable: React.Dispatc
           <p className="Text_Bold mb-2"> Total price: {totalPrice}</p>
           <Link to={'/order'}>
             <MyBtn propsFunc={closeModal} title={'Перейти к оформлению'} {...propsBtn}></MyBtn>
-          </Link>
+          </Link> 
         </div>
       ) : (
-        <span className="self-center text-center Text_Bold">Корзина пуста</span>
+        <div>
+          <img className="p-2 max-w-[150px] m-auto" src={emptyCart} alt="" />
+          <p className='text-center'>
+            <span className="m-auto text-center Text_Bold">В корзине пусто</span><br />
+            <span className='Text_Regular'>Добавьте товары, чтобы оформить заказ</span>
+          </p>
+        </div>
       )}
     </Modal>
   );

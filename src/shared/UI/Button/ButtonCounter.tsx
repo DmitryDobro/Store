@@ -13,7 +13,7 @@ function ButtonCounter({count, handleIncrement, handleDecrement, className}: But
   function decrement() {
     handleDecrement();
   }
-  const baseClass = 'flex justify-around bg-mainTheme rounded-2xl px-2';
+  const baseClass = 'flex justify-around bg-mainTheme rounded-2xl px-2 ButtonText';
   return (
     <div className={clsx(baseClass, className)}>
       <button onClick={increment}>&#43;</button>

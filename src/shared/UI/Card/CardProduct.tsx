@@ -38,24 +38,26 @@ function CardProduct({name, prise, specifications, img, id, sale}: Product) {
         </div>
       </div>
       <div className="mb-[12px]">
-        <h4 className="Text_Bold mb-[12px]">{name}</h4>
+        <h4 className="Text_MediumBold mb-[12px]">{name}</h4>
         <p>
-          <span className={`Text_Bold ${prise?.salePrise && 'text-[rgb(136,136,136)] line-through Text_Regular'} `}>
+          <span className={`Text_MediumBold  ${prise?.salePrise && 'text-[rgb(136,136,136)] line-through Text_Small'} `}>
             {prise?.mainPrise}
           </span>
           &nbsp;
-          <span className="Text_Bold">{prise?.salePrise}</span>
+          <span className="Text_MediumBold">{prise?.salePrise}</span>
         </p>
-        <span className="">
-          <span className="Text_Regular text-[rgb(136,136,136)]">Specification:</span> <br />
-          <span className=" Text_Regular text-[black]">
-            {specifications?.map((specification, index) => <p key={index}>{specification}</p>)}
-          </span>
+        <span className="Text_Small">
+          <span className=" text-[rgb(136,136,136)]">Specification:</span> <br />
+          <span className="text-[black]">{specifications?.map((specification, index) => <p key={index}>{specification}</p>)}</span>
         </span>
       </div>
 
       {cartProduct ? (
-        <ButtonCounter className='border-1 py-[16px]' count={cartProduct.quantity} handleIncrement={handleIncrement} handleDecrement={handleDecrement}></ButtonCounter>
+        <ButtonCounter
+          className="border-1 py-[16px]"
+          count={cartProduct.quantity}
+          handleIncrement={handleIncrement}
+          handleDecrement={handleDecrement}></ButtonCounter>
       ) : (
         <MyBtn propsFunc={handleAddProduct} title={'ADD TO CART'}></MyBtn>
       )}
